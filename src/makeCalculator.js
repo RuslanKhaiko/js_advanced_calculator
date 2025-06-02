@@ -5,6 +5,37 @@
  */
 function makeCalculator() {
   // write code here
+  return {
+    result: 0,
+
+    add(x) {
+      return this.result + x;
+    },
+
+    subtract(x) {
+      return this.result - x;
+    },
+
+    multiply(x) {
+      return this.result * x;
+    },
+
+    divide(x) {
+      return this.result / x;
+    },
+
+    operate(callback, value) {
+      this.result = callback.call(this, value);
+
+      return this; // Enable chaining
+    },
+
+    reset() {
+      this.result = 0;
+
+      return this; // Enable chaining
+    },
+  };
 }
 
 module.exports = makeCalculator;
