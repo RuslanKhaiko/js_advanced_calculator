@@ -9,31 +9,39 @@ function makeCalculator() {
     result: 0,
 
     add(x) {
-      return this.result + x;
+      this.result += x;
+
+      return this.result;
     },
 
     subtract(x) {
-      return this.result - x;
+      this.result -= x;
+
+      return this.result;
     },
 
     multiply(x) {
-      return this.result * x;
+      this.result *= x;
+
+      return this.result;
     },
 
     divide(x) {
-      return this.result / x;
+      this.result /= x;
+
+      return this.result;
     },
 
     operate(callback, value) {
-      this.result = callback.call(this, value);
+      callback.call(this, value);
 
-      return this; // Enable chaining
+      return this; // chaining support
     },
 
     reset() {
       this.result = 0;
 
-      return this; // Enable chaining
+      return this; // chaining support
     },
   };
 }
